@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <!-- Include the jQuery library -->
+    <script src="lib/jquery-1.11.3.min.js"></script>
+
+    <!-- Include the jQuery Mobile library -->
+  
+    <link href="lib/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    
+    <title>PublishStore</title>
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+
+    <div data-role="page" id="LoginPage" data-theme="a">
+        <div data-role="header">
+            <h5>Welcome</h5>
+        </div>
+        <div data-role="content" class="ui-content">
+            <br /><br />
+            <fieldset data-role="fieldcontain" style="border: 1px solid black; padding: 5px;">
+                <legend>Please Login</legend>
+                
+                <br>
+                <br>
+                <label for="LPName">Name:</label>
+                <input type="text" id="LPName" name="text" placeholder="insert your name..." />
+                <label for="LPPassword">Password:</label>
+                <input type="text" id="LPPassword" name="number" placeholder="insert your password..." />
+                <div style="text-align:center">
+                    <a href="#" data-role="button" id="LoginBtn" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">Login</a>
+                    <a href="#" data-role="button" id="RegisterBtn" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">Register</a>
+                </div>
+            </fieldset>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="d">
+            <h5>Shop store  &nbsp &copy; &nbsp  group11</h5>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="CreateShopPage" data-theme="a">
+
+        <div data-role="header" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#CreateShopPage" data-icon="bars">MyShop</a></li>
+                   
+
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" class="ui-content" style="text-align:center;">
+           
+            <fieldset data-role="fieldcontain" style="border: 1px solid black; padding: 5px;">
+               
+                <br>
+                <br>
+                <label for="shopname">shop name:</label>
+                <input type="text" name="shopname" id="shopname">
+                <label for="phone">phone:</label>
+                <input type="text" name="phone" id="phone">
+                <label for="address">Adress:</label>
+                <input type="text" name="address" id="address">
+                <div style="text-align:center">
+                    <a data-role="button" id="cameraTakePicture" name="myimage" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">Take Picture </a>
+                    <a data-role="button" id="send" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">send </a>
+                </div>
+                     <img  src="./Resources/splash/KlingonHead.png" id="myimage" style="left:45%;width:100px;height:100px; " />
+               
+                
+            </fieldset>
+            <select id="selectshop" data-native-menu="false"></select>
+            <a data-role="button" id="pickstore" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">pick exist store</a>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h5>Shop store  &nbsp &copy; &nbsp  group11</h5>
+        </div>
+    </div>
+<!--AddItems-->
+
+
+    
+
+    <div data-role="page" id="AddItems" data-theme="a">
+
+        <div data-role="header" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+
+                    <li><a href="#CreateShopPage" data-icon="bars">MyShop</a></li>
+                    <li><a href="#AddItems" data-icon="star">Add Items</a></li>
+                    <li><a href="#ShowOrders" data-icon="star">Show Orders</a></li>
+                    <li><a href="#ShowMeeting" data-icon="star">Show Meeting</a></li>
+
+                </ul>
+            </div>
+        </div>
+   <div data-role="content" class="ui-content" style="text-align:center;">
+
+
+                   
+             <fieldset data-role="fieldcontain" style="border: 1px solid black; padding: 10px;">
+                 
+                 
+                 <br>
+                 <br>
+                
+                <label for="itemname">item name:</label>
+                <input type="text" name="itemname" id="itemname">
+                
+                
+                <label for="decription">short description:</label>
+                
+                 <textarea cols="40" rows="8" name="description" id="description"></textarea>
+                 <label for="image">Image:</label>
+                 <img id="itemimage" style="position: relative; left: 10px; float:left; margin-left: 6px;  margin-top: 10px; height:100px; width:100px" /> 
+                
+            </fieldset>
+          
+            <a data-role="button" id="cameraTakeItemPicture" name="itemimage" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">Take Picture </a>
+      
+
+       <a href="#" data-role="button" id="checkbutton" data-mini="true" data-inline="true" data-icon="check" data-iconpos="bottom">add to store</a>
+       <label >Exist items:</label>
+       <br>
+       
+       <table id="tableProp" data-role="table" data-mode="Reflow" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-popup-theme="a">
+           <tbody id="tbody"></tbody>
+
+       </table>
+       
+     
+        </div>
+       
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h5>Shop store  &nbsp &copy; &nbsp  group11</h5>
+        </div>
+   </div>
+
+
+
+    <!--ShowOrders-->
+
+
+
+
+    <div data-role="page" id="ShowOrders" data-theme="a">
+
+        <div data-role="header" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+
+                    <li><a href="#CreateShopPage" data-icon="bars">MyShop</a></li>
+                    <li><a href="#AddItems" data-icon="star">Add Items</a></li>
+                    <li><a href="#ShowOrders" data-icon="star">Show Orders</a></li>
+                    <li><a href="#ShowMeeting" data-icon="star">Show Meeting</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div data-role="content"  class="ui-content" style="text-align:center;">
+
+            
+            <div id="tableCont">
+
+            </div>
+
+
+
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h5>Shop store  &nbsp &copy; &nbsp  group11</h5>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div data-role="page" id="ShowMeeting" data-theme="a">
+
+        <div data-role="header" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+
+                    <li><a href="#CreateShopPage" data-icon="bars">MyShop</a></li>
+                    <li><a href="#AddItems" data-icon="star">Add Items</a></li>
+                    <li><a href="#ShowOrders" data-icon="star">Show Orders</a></li>
+                    <li><a href="#ShowMeeting" data-icon="star">Show Meeting</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" class="ui-content" style="text-align:center;">
+
+            <div id="dtable"></div>
+
+           
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h5>Shop store  &nbsp &copy; &nbsp  group11</h5>
+        </div>
+    </div>
+
+
+</body>
+</html>
